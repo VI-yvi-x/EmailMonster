@@ -28,8 +28,7 @@ with codecs.open('subscribers', 'r', 'utf-8') as f:
             index += 1
         # print str(subscribersCount) + ' ' + str(index)
 
-        # TODO TEST THIS!!!!
-        line = re.sub('\n', '', line)
+        line = line.replace('\n','').replace('\r','')
         sheet.cell(row=subscribersCount, column=index).value = re.sub('^.*: ', '', line)
 
 wb.save('Test_book.xlsx')
